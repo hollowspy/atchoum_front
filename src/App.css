@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+  width: 800px;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .App {
+    width: calc(100vw - 40px);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+

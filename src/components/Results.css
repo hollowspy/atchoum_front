@@ -1,0 +1,21 @@
+.subBlock {
+    margin: 20px 0;
+    border: 1px #80808030 solid;
+    padding: 20px;
+    border-radius: 20px;
+    background: #80808030;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.tableResult {
+    border: 1px black solid;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.tableResult > thead > tr > td,
+.tableResult > tbody > tr > td {
+    border: 1px black solid;
+    border-collapse: collapse;
+    width: calc(100% / 6);
+}

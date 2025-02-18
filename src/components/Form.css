@@ -1,0 +1,27 @@
+.introForm {
+    margin: 40px 0;
+}
+
+.wrapperForm {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.subBlock {
+    margin: 20px 0;
+    border: 1px #80808030 solid;
+    padding: 20px;
+    border-radius: 20px;
+    background: #80808030;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.wrapperInput {
+    margin: 10px 0;
+}
+
+.wrapperBtn {
+    margin-top: 30px;
+}
