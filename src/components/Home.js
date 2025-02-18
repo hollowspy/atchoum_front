@@ -7,9 +7,6 @@ const Home = () => {
             <div>Lien du repo github public
                 <a href="https://github.com/hollowspy/atchoum_front" target="_blank" rel="noopener noreferrer"> Cliquez ici</a>
             </div>
-            <div>Lien du repo github public
-                <a href="https://github.com/hollowspy/atchoum_front" target="_blank" rel="noopener noreferrer"> Cliquez ici</a>
-            </div>
         </div>
     )
 }
