@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="App">
       <h1>Bienvenue à Atchoum. Concours Géant !</h1>
-      <img src={atchoumPhoto} alt="Photo Atchoum"/>
+      <img src={atchoumPhoto} alt="Profile Atchoum"/>
         <RouterProvider router={router} />
     </div>
   );
