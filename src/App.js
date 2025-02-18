@@ -1,6 +1,5 @@
 import './App.css';
 import Form from "./components/Form";
-import atchoumPhoto from './assets/atchoum.jpg'
 import {
     createBrowserRouter,
     RouterProvider,
