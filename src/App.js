@@ -6,12 +6,17 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import Results from "./components/Results";
+import Home from "./components/Home";
 
 function App() {
 
     const router = createBrowserRouter([
         {
             path: "/",
+            element:   <Home />,
+        },
+        {
+            path: "/form",
             element:   <Form />,
         },
         {
@@ -23,8 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Bienvenue à Atchoum. Concours Géant !</h1>
-      <img src={atchoumPhoto} alt="Profile Atchoum"/>
+
         <RouterProvider router={router} />
     </div>
   );

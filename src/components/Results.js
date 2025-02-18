@@ -2,6 +2,7 @@ import {useState} from "react";
 import {Button, TextField} from "@mui/material";
 import './Results.css'
 import axios from "axios";
+import atchoumPhoto from "../assets/atchoum.jpg";
 
 
 
@@ -51,6 +52,8 @@ const Results = () => {
 
     return (
         <div>
+            <h1>Bienvenue à Atchoum. Concours Géant !</h1>
+            <img src={atchoumPhoto} alt="Profile Atchoum"/>
             <h1>Résultat !!!</h1>
             <p>Tu as oublié ce que tu as mis comme réponse. Tu veux te rafraichir la mémoire ? Marque ton addresse mail que tu as utilisée alors</p>
             <form onSubmit={onSubmitForm} className="wrapperForm">

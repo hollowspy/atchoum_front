@@ -13,6 +13,7 @@ import {
 import {useState} from "react";
 import axios from "axios";
 import './Form.css'
+import atchoumPhoto from "../assets/atchoum.jpg";
 
 
 const initForm = {
@@ -58,6 +59,8 @@ const Form = () => {
 
   return (
     <>
+      <h1>Bienvenue à Atchoum. Concours Géant !</h1>
+      <img src={atchoumPhoto} alt="Profile Atchoum"/>
       <div className="introForm">
         <p>Hello la compagnie ! Moi c’est Atchoum ! Petit être encore au chaud dans le ventre de maman ! Papa et maman
           étant joueurs, ils vous proposent ce petit concours !! A vous de découvrir mon sexe (je suis pudique , voyez vous !)
