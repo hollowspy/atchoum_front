@@ -49,7 +49,7 @@ const Product = () => {
         const product = products[id];
         setProduct(product || null);
         setLoading(false);
-    }, [id]);
+    }, [id, products]);
 
     if (loading) {
         return (
