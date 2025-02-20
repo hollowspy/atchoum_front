@@ -1,53 +1,52 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+const products = {
+    1: {
+        id: 1,
+        name: 'Modern Desk Lamp',
+        price: '59.99',
+        description: 'Sleek LED desk lamp with adjustable brightness. Features include touch controls, multiple color temperatures, and flexible arm for perfect positioning. Ideal for home office or study space.',
+        image: 'https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?w=400'
+    },
+    2: {
+        id: 2,
+        name: 'Wireless Headphones',
+        price: '129.99',
+        description: 'Premium noise-canceling wireless headphones with superior sound quality. Includes 30-hour battery life, quick charging, and comfortable over-ear design.',
+        image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400'
+    },
+    3: {
+        id: 3,
+        name: 'Smart Watch',
+        price: '199.99',
+        description: 'Fitness tracking smartwatch with heart rate monitor, GPS, and sleep tracking. Water-resistant up to 50m and compatible with iOS and Android.',
+        image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400'
+    },
+    4: {
+        id: 4,
+        name: 'Coffee Maker',
+        price: '89.99',
+        description: 'Programmable coffee maker with thermal carafe. Features 24-hour programmability, auto-shutoff, and brew strength control.',
+        image: 'https://images.unsplash.com/photo-1522012188892-24beb302783d?w=400'
+    },
+    5: {
+        id: 5,
+        name: 'Portable Speaker',
+        price: '79.99',
+        description: 'Waterproof bluetooth speaker with 20hr battery life. Features include 360° sound, built-in microphone for calls, and dust-proof design.',
+        image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400'
+    }
+};
+
 const Product = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const products = {
-        1: {
-            id: 1,
-            name: 'Modern Desk Lamp',
-            price: '59.99',
-            description: 'Sleek LED desk lamp with adjustable brightness. Features include touch controls, multiple color temperatures, and flexible arm for perfect positioning. Ideal for home office or study space.',
-            image: 'https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?w=400'
-        },
-        2: {
-            id: 2,
-            name: 'Wireless Headphones',
-            price: '129.99',
-            description: 'Premium noise-canceling wireless headphones with superior sound quality. Includes 30-hour battery life, quick charging, and comfortable over-ear design.',
-            image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400'
-        },
-        3: {
-            id: 3,
-            name: 'Smart Watch',
-            price: '199.99',
-            description: 'Fitness tracking smartwatch with heart rate monitor, GPS, and sleep tracking. Water-resistant up to 50m and compatible with iOS and Android.',
-            image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400'
-        },
-        4: {
-            id: 4,
-            name: 'Coffee Maker',
-            price: '89.99',
-            description: 'Programmable coffee maker with thermal carafe. Features 24-hour programmability, auto-shutoff, and brew strength control.',
-            image: 'https://images.unsplash.com/photo-1522012188892-24beb302783d?w=400'
-        },
-        5: {
-            id: 5,
-            name: 'Portable Speaker',
-            price: '79.99',
-            description: 'Waterproof bluetooth speaker with 20hr battery life. Features include 360° sound, built-in microphone for calls, and dust-proof design.',
-            image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400'
-        }
-    };
-
     useEffect(() => {
         setLoading(true);
-        const product = products[id];
-        setProduct(product || null);
+        setProduct(products[id] || null);
         setLoading(false);
     }, [id]);
 
