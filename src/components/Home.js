@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -39,6 +39,10 @@ const Home = () => {
             image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400'
         }
     ]);
+
+    useEffect(() => {
+        window.mixpanel?.track('Page Viewed', { page: window.location.pathname });
+    }, []);
 
     return (
         <div style={{ 

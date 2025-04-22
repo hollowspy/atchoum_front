@@ -16,6 +16,7 @@ const Results = () => {
 
     const onSubmitForm = async (e) => {
         console.log('inside On Submit Form');
+        window.mixpanel?.track('Ask result', { email: email });
         e.preventDefault();
         setIsResultLoaded(true)
         try {
