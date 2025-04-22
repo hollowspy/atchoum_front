@@ -184,6 +184,11 @@
 
       // 🟢 Initialisation de Mixpanel
       mixpanel.init("04126fddda5f6ddefad4b0faf655db57");
+      const anonymousId = localStorage.getItem('anon_id_mixpanel') || crypto.randomUUID();
+      localStorage.setItem('anon_id_mixpanel', anonymousId);
+
+      // ✅ Lie ce visiteur à un profil "identifié", mais anonymement
+      mixpanel.identify(anonymousId);
     </script>
 
 
