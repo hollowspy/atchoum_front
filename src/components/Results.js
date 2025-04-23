@@ -18,10 +18,10 @@ const Results = () => {
     const onSubmitForm = async (e) => {
         e.preventDefault();
         console.log('inside On Submit Form');
-        const visitorId = window?.ABTasty?.visitor?.id;
+        /*const visitorId = window?.ABTasty?.visitor?.id;
         if (visitorId) {
             window.mixpanel?.people.set({ $flagship_user_id: visitorId });
-        }
+        } */
         setIsResultLoaded(true)
         try {
             const url = 'https://api-concours-atchoum.onrender.com/result';
