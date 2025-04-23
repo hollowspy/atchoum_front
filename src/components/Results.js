@@ -19,6 +19,7 @@ const Results = () => {
         e.preventDefault();
         console.log('inside On Submit Form');
         const visitorId = window?.ABTasty?.visitor?.id;
+        window.mixpanel?.track('Ask result', { email: email });
         if (visitorId) {
             window.mixpanel?.people.set({ $flagship_user_id: visitorId });
         }
