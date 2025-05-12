@@ -204,6 +204,34 @@
         a = b.getElementsByTagName(c)[0];
         a.parentNode.insertBefore(d, a);
       })();
+
+
+      (function () {
+        // Vérifie si FullStory est bien chargé
+        if (typeof FS === 'undefined') return;
+
+        const LOCAL_STORAGE_KEY = 'fs_user_id';
+
+        // Fonction pour générer un ID aléatoire
+        function generateRandomId() {
+          return 'fs_' + Math.random().toString(36).substring(2, 15);
+        }
+
+        // Récupère ou crée un identifiant
+        let userId = localStorage.getItem(LOCAL_STORAGE_KEY);
+
+        if (!userId) {
+          userId = generateRandomId();
+          localStorage.setItem(LOCAL_STORAGE_KEY, userId);
+        }
+
+        // Appel à FS.identify()
+        FS.identify(userId, {
+          visitorType: 'anonymous' // Tu peux ajouter d'autres propriétés si tu veux
+        });
+      })();
+
+
     </script>
 
 
