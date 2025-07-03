@@ -9,7 +9,8 @@ const Products = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const url = "http://localhost:8080/products_contentfull";
+               // const url = "http://localhost:8080/products_contentfull";
+                const url = 'https://api-concours-atchoum.onrender.com/products_contentfull'
                 const response = await axios.get(url);
 
                 console.log("RAW API RESPONSE:", response.data);
