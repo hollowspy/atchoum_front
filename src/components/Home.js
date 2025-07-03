@@ -70,7 +70,7 @@ const Home = () => {
                     <h1 style={{ margin: 0, color: '#007bff' }}>Test Store</h1>
                     <nav>
                         <Link to="/" style={{ marginRight: '20px', textDecoration: 'none', color: '#333' }}>Home</Link>
-                        <Link to="/about" style={{ textDecoration: 'none', color: '#333' }}>About</Link>
+                        <Link to="/products" style={{ textDecoration: 'none', color: '#333' }}>Products</Link>
                     </nav>
                 </div>
             </header>
