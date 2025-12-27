@@ -48,7 +48,7 @@ const Product = () => {
         setLoading(true);
         setProduct(products[id] || null);
         setLoading(false);
-    }, [id]);
+    }, [id, products]);
 
     if (loading) {
         return (
