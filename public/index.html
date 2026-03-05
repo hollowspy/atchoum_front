@@ -269,6 +269,41 @@
     <script type="text/javascript" src="https://gs.wandzcdn.com/wandz/ABK80DUH4W.js" async=""></script>
 
 
+    <! -- mParticle -->
+    <script type="text/javascript">
+      (function (window) {
+        window.mParticle = window.mParticle || {};
+        window.mParticle.config = window.mParticle.config || {};
+        window.mParticle.config.isDevelopmentMode = true; // Mettez à false en production
+
+        (function (t) {
+          var e = window.mParticle;
+          e.config = t || {};
+          e.config.rq = [];
+          e.ready = function (t) {
+            e.config.rq.push(t);
+          };
+          var r = ["endSession", "logError", "logEvent", "logFormEvent", "logPageView", "identify", "login", "logout", "setUserAttribute", "unsetUserAttribute", "setUserTag", "setSessionAttribute", "setOptOut", "getAppName", "getAppVersion", "setAppVersion", "getAppName", "setAppName", "getDeviceId", "getCanIdentify", "setLogLevel"];
+          r.forEach(function (t) {
+            e[t] = function () {
+              var r = Array.prototype.slice.call(arguments);
+              r.unshift(t);
+              e.config.rq.push(r);
+            };
+          });
+          var n = document.createElement("script");
+          n.type = "text/javascript";
+          n.async = true;
+          n.src = ("https:" == document.location.protocol ? "https://jssdkcdns" : "http://jssdkcdn") + ".mparticle.com/js/v2/" + t.apiKey + "/mparticle.js";
+          var a = document.getElementsByTagName("script")[0];
+          a.parentNode.insertBefore(n, a);
+        })({
+          apiKey: 'us1-4af4469224dba34683a0425cebdfc10b' // Utilisez votre Key ici
+        });
+      })(window);
+    </script>
+
+
 
 
     <meta charset="utf-8" />
