@@ -40,9 +40,18 @@ const Home = () => {
         }
     ]);
 
+    const [currentSlide, setCurrentSlide] = useState(0);
+
     useEffect(() => {
         window.mixpanel?.track('Page Viewed', { page: window.location.pathname });
     }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide(prev => (prev + 1) % products.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [products.length]);
 
     return (
         <div style={{ 
@@ -82,6 +91,75 @@ const Home = () => {
                 padding: '0 20px',
                 flex: 1
             }}>
+                {/* Carousel */}
+                <div style={{
+                    position: 'relative',
+                    width: '100%',
+                    height: '400px',
+                    overflow: 'hidden',
+                    borderRadius: '8px',
+                    marginBottom: '40px',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+                }}>
+                    {products.map((product, index) => (
+                        <div key={product.id} style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            opacity: index === currentSlide ? 1 : 0,
+                            transition: 'opacity 0.6s ease-in-out'
+                        }}>
+                            <img src={product.image} alt={product.name} style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover'
+                            }} />
+                            <div style={{
+                                position: 'absolute',
+                                bottom: 0,
+                                left: 0,
+                                width: '100%',
+                                padding: '20px',
+                                background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
+                                color: '#fff',
+                                boxSizing: 'border-box'
+                            }}>
+                                <h3 style={{ margin: 0, fontSize: '24px' }}>{product.name}</h3>
+                            </div>
+                        </div>
+                    ))}
+
+                    {/* Dots */}
+                    <div style={{
+                        position: 'absolute',
+                        bottom: '15px',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        display: 'flex',
+                        gap: '10px',
+                        zIndex: 2
+                    }}>
+                        {products.map((product, index) => (
+                            <button
+                                key={product.id}
+                                onClick={() => setCurrentSlide(index)}
+                                aria-label={`Go to slide ${index + 1}`}
+                                style={{
+                                    width: '12px',
+                                    height: '12px',
+                                    borderRadius: '50%',
+                                    border: 'none',
+                                    cursor: 'pointer',
+                                    padding: 0,
+                                    backgroundColor: index === currentSlide ? '#fff' : 'rgba(255,255,255,0.5)'
+                                }}
+                            />
+                        ))}
+                    </div>
+                </div>
+
                 <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>Featured Products</h2>
                 <div style={{ 
                     display: 'grid', 
