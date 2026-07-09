@@ -209,7 +209,10 @@
       })(document, window.mixpanel || []);
 
       // 🟢 Initialisation de Mixpanel
-      mixpanel.init("04126fddda5f6ddefad4b0faf655db57");
+      mixpanel.init('04126fddda5f6ddefad4b0faf655db57', {
+        api_host: 'https://api-eu.mixpanel.com',
+      });
+
       const anonymousId = localStorage.getItem('anon_id_mixpanel') || crypto.randomUUID();
       localStorage.setItem('anon_id_mixpanel', anonymousId);
 
