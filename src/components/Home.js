@@ -41,9 +41,19 @@ const Home = () => {
     ]);
 
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [email, setEmail] = useState('');
+
+    const handleLog = () => {
+        window.location.href = `https://auth.abtasty.com/login_sso?from_vwo=true&email=${encodeURIComponent(email)}`;
+    };
 
     useEffect(() => {
         window.mixpanel?.track('Page Viewed', { page: window.location.pathname });
+
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('is_log_with_sso') === 'true') {
+            alert('Connection successful');
+        }
     }, []);
 
     useEffect(() => {
@@ -91,6 +101,42 @@ const Home = () => {
                 padding: '0 20px',
                 flex: 1
             }}>
+                {/* Login */}
+                <div style={{
+                    display: 'flex',
+                    gap: '10px',
+                    justifyContent: 'center',
+                    marginBottom: '40px'
+                }}>
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email"
+                        style={{
+                            padding: '10px 15px',
+                            border: '1px solid #ccc',
+                            borderRadius: '5px',
+                            fontSize: '16px',
+                            minWidth: '280px'
+                        }}
+                    />
+                    <button
+                        onClick={handleLog}
+                        style={{
+                            backgroundColor: '#007bff',
+                            color: 'white',
+                            padding: '10px 25px',
+                            border: 'none',
+                            borderRadius: '5px',
+                            fontSize: '16px',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        Log
+                    </button>
+                </div>
+
                 {/* Carousel */}
                 <div style={{
                     position: 'relative',
