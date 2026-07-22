@@ -44,7 +44,7 @@ const Home = () => {
     const [email, setEmail] = useState('');
 
     const handleLog = () => {
-        window.location.href = `https://auth.abtasty.com/login_sso?from_vwo=true&email=${encodeURIComponent(email)}`;
+        window.location.href = `https://local.onelogin.abtasty.com:3001/login_sso?from_vwo=true&email=${encodeURIComponent(email)}`;
     };
 
     useEffect(() => {
